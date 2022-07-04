@@ -1,0 +1,15 @@
+version: "3.8"
+
+x-base: &base
+  build:
+    dockerfile: ./docker_dev/Dockerfile
+    context: .
+services:
+  web:
+    <<: *base
+    restart: on-failure
+    volumes:
+      - .:/app
+    command: npm run start
+    ports:
+      - "8080:8080"
