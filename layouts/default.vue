@@ -9,7 +9,19 @@
 import NavBar from '../components/NavBar'
 
 export default {
-  components: { NavBar }
+  components: { NavBar },
+  head () {
+    return {
+      titleTemplate: '%s - Real World Events',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Where you can find all Events in the world!'
+        }
+      ]
+    }
+  }
 }
 </script>
 
