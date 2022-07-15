@@ -5,7 +5,9 @@
   </div>
 </template>
 <script setup>
-const { data: events } = await useFetch('http://localhost:3001/events')
+import EventService from '../services/EventService'
+
+const { data: events } = await EventService.getEvents()
 useHead({
   title: 'Events Listing'
 })

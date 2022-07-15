@@ -1,8 +1,10 @@
 <template><h1>{{ event.title }}</h1></template>
 <script setup>
+import EventService from '../../services/EventService'
+
 const id = useRoute().params.id
 
-const { data: event } = await useFetch('http://localhost:3001/events/' + id)
+const { data: event } = await EventService.getEvent(id)
 
 useHead({
   title: event.title,
